@@ -19,35 +19,37 @@ class _CheckboxCustomState extends State<CheckboxCustom> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GestureDetector(
-            onTap: (){
+            onTap: () {
               setState(() {
                 ischeck = !ischeck;
               });
             },
-            child: AnimatedContainer(duration: Duration(milliseconds: 500),
-            curve: Curves.fastLinearToSlowEaseIn,
-            child: Icon(Icons.check, color: Colors.white,),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey.shade400, width: 1),
-              color: ischeck? Colors.indigoAccent: Colors.white,
-              borderRadius: BorderRadius.circular(2)
-            ),),
+            child: AnimatedContainer(
+              duration: Duration(milliseconds: 500),
+              curve: Curves.fastLinearToSlowEaseIn,
+              child: Icon(
+                Icons.check,
+                color: Colors.white,
+              ),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade400, width: 1), color: ischeck ? Colors.indigoAccent : Colors.white, borderRadius: BorderRadius.circular(2)),
+            ),
           ),
-
-         // Container(
-         //   height: 24.h,
-         //   width: 24.h,
-         //   decoration: BoxDecoration(
-         //     borderRadius: BorderRadius.circular(2),
-         //     border: Border.all(color: Colors.grey.shade400)
-         //   ),
-         // ),
-          SizedBox(width: 12.w,),
+          SizedBox(
+            width: 12.w,
+          ),
           Expanded(
-              child: Text(
-            'I certify that I am 18 years of age or older, and I agree to the User Agreement and Privacy Policy',
-            style: txt14w400!.copyWith(color: Color(0xff98A2B3)),
-          )),
+            child: RichText(
+              text: TextSpan(
+                  text: 'I certify that I am 18 years of age or older, and I agree to the ',
+                  style: txt14w400,
+                  children: [TextSpan(text: 'User Agreement', style: TextStyle(color: kMainCl,
+                  decoration: TextDecoration.underline)),
+                    TextSpan(text: ' and '),
+                    TextSpan(text: 'Privacy Policy', style: TextStyle(color: kMainCl,
+                    decoration: TextDecoration.underline))]),
+            ),
+          )
         ],
       ),
     );
